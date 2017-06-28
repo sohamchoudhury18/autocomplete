@@ -9,17 +9,16 @@ $(document).ready(function() {
 
 });
 
-$.fn.autocomplete = function(url) {
+$.fn.autocomplete = function() {
 
     //init
-    this.url = url;
     this.api = new Api();
-    this.ui = new Ui();
+    this.ui = new Ui(this.api);
     this.events = new Event(this.api, this.ui);
 
     //calling of events
-    this.ui.create(this);
+    // this.ui.create(this);
     this.events.capture(this);
-    this.api.ajax_call(this.url);
+    //this.api.ajax_call(keyword,this.url);
 
 };
